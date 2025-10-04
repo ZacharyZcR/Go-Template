@@ -51,7 +51,7 @@ changelog:
 
 release:
   github:
-    owner: yourusername
-    name: go-template
+    owner: ZacharyZcR
+    name: Go-Template
   draft: false
   prerelease: auto

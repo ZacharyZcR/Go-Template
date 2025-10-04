@@ -17,7 +17,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/go-template.git my-project
+git clone https://github.com/ZacharyZcR/Go-Template.git my-project
 cd my-project
 
 # 重新初始化 Git
@@ -29,7 +29,7 @@ git init
 
 ```bash
 # 修改模块名
-go mod edit -module github.com/yourusername/my-project
+go mod edit -module github.com/your-username/my-project
 
 # 安装开发工具
 make install-tools
