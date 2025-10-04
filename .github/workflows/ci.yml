@@ -26,7 +26,7 @@ jobs:
           git diff --exit-code go.mod $(test -f go.sum && echo go.sum || echo "")
 
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v6
+        uses: golangci/golangci-lint-action@v8
         with:
           version: v1.62
 
