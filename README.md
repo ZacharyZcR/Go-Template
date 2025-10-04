@@ -4,7 +4,7 @@
 
 ## 特性
 
-- ✅ Go 1.25.1
+- ✅ Go 1.23
 - ✅ CI/CD 自动化（lint + test + build）
 - ✅ 代码质量检查（风格、复杂度、坏味道）
 - ✅ Pre-commit Hooks（本地拦截）
