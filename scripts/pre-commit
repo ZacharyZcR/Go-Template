@@ -1,0 +1,37 @@
+#!/bin/bash
+# Pre-commit hook - 阻止垃圾代码提交
+
+set -e
+
+echo "运行 pre-commit 检查..."
+
+# 格式检查
+echo "→ 检查代码格式..."
+if ! gofmt -l . | grep -v "^$"; then
+    echo "✗ 代码未格式化。运行 'make fmt' 修复。"
+    exit 1
+fi
+
+# Go mod tidy 检查
+echo "→ 检查 go.mod..."
+go mod tidy
+if ! git diff --exit-code go.mod go.sum; then
+    echo "✗ go.mod/go.sum 不整洁。已做修改，请检查后提交。"
+    exit 1
+fi
+
+# Lint 检查
+echo "→ 运行代码检查..."
+if ! golangci-lint run ./...; then
+    echo "✗ 代码检查失败。修复上述问题。"
+    exit 1
+fi
+
+# 测试
+echo "→ 运行测试..."
+if ! go test ./...; then
+    echo "✗ 测试失败。提交前修复。"
+    exit 1
+fi
+
+echo "✓ 所有检查通过"
